@@ -1,0 +1,80 @@
+/* home.css */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+  }
+  
+  .title {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .title h1 {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .main-content {
+    display: flex;
+
+    
+    flex-wrap: wrap;
+    
+    gap: 20px;
+  }
+  
+  .uslugi {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .usluga {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .usluga:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .usluga img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .usluga h4 {
+    font-size: 1.5rem;
+    color: #711dd9;
+    margin: 15px 0;
+  }
+  
+  .usluga p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0 15px 20px;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .uslugi {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .usluga {
+      width: 90%;
+    }
+  }
+  
