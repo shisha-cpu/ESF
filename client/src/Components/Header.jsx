@@ -1,17 +1,22 @@
 import React from 'react';
 import './header.css'; 
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <div className="header">
+    <div className="header ">
       <div className="inner-header flex">
-        <div className="header-content">
+        <div className="header-content container">
             <img src="" alt="Логотип"  />
             <div className="header-navigate">
                 <ul>
-                    <li>Главная</li>
+{/* 
                     <li>О нас </li>
-                    <li>Контакты </li>
+                    <li>Контакты </li> */}
+                    <Link to='/'>Главная</Link>
+                    <Link to='/products'>Товары</Link>
+                    <Link to='/about'>О нас </Link>
+                    <Link to='/contact'>Контакты </Link>
                 </ul>
             </div>
             <div className="header-contact">Телефон : +987654321</div>

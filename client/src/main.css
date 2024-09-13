@@ -3,6 +3,8 @@ body{
 }
 .container{
     padding: 0 100px;
+    max-width: 1500px;
+    margin:  0 auto;
 }
 
 @media (max-width:1200px) {

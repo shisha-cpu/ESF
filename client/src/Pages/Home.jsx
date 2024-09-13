@@ -1,6 +1,6 @@
 import { Usluga } from "../Components/Usluga"
 import './home.css'
-
+import Button from "../Components/Button";
 import React from "react";
 
 export function Home() {
@@ -89,10 +89,26 @@ export function Home() {
 
   return (
     <section className="main container">
+
+<section>
+  <div className="main-img  ">
+    <img src="https://fitnesstop.ru/assets/images/products/928/fittseps-4.jpg" alt="background" />
+    <div className="overlay">
+      <h1 className="img-title">Профессиональная укладка спортивных покрытий для любых задач!</h1>
+      <button className="contact-btn"><b>Связаться с нами</b></button>
+      {/* <Button  text={"Связаться с нами  "} /> */}
+    </div>
+  </div>
+</section>
+
+
       <div className="title">
         <h1>Наши услуги:</h1>
       </div>
       <div className="main-content">
+        
+
+        <section>
         <div className="uslugi">
           {uslugi.map((usluga, index) => (
             <Usluga
@@ -103,6 +119,8 @@ export function Home() {
             />
           ))}
         </div>
+        </section>
+
       </div>
     </section>
   );

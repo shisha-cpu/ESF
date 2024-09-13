@@ -1,6 +1,7 @@
 import React from 'react';
 import './footer.css'; 
-import { FaPhone, FaTelegram, FaWhatsapp, FaVk, FaMapMarkerAlt } from 'react-icons/fa'; 
+
+
 
 const Footer = () => {
   return (
@@ -20,11 +21,7 @@ const Footer = () => {
                <div className=" container contact_info">
                 <h3>Контакты</h3>
                 <ul className="contact_list">
-                  <li><FaPhone /> Телефон: +7 (999) 123-45-67</li>
-                  <li><FaTelegram /> Telegram: <a href="https://t.me/yourtelegram">t.me/yourtelegram</a></li>
-                  <li><FaWhatsapp /> WhatsApp: <a href="https://wa.me/79991234567">wa.me/79991234567</a></li>
-                  <li><FaVk /> ВКонтакте: <a href="https://vk.com/yourvk">vk.com/yourvk</a></li>
-                  <li><FaMapMarkerAlt /> Адрес: ул. Примерная, д. 1, Москва</li>
+
                 </ul>
                 <div className="contact_button">
                 <button className="btn_get btn_get_two">Связаться с нами</button>
