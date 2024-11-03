@@ -1,28 +1,40 @@
-import React from 'react';
-import './header.css'; 
+import React, { useState } from 'react';
+import './header.css';
 import { Link } from 'react-router-dom';
+import logo from '../../public/img/i.png';
 
 const Header = () => {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <div className="header ">
+    <div className="header">
       <div className="inner-header flex">
         <div className="header-content container">
-            <img src="" alt="Логотип"  />
-            <div className="header-navigate">
-                <ul>
-{/* 
-                    <li>О нас </li>
-                    <li>Контакты </li> */}
-                    <Link to='/'>Главная</Link>
-                    <Link to='/products'>Товары</Link>
-                    <Link to='/about'>О нас </Link>
-                    <Link to='/contact'>Контакты </Link>
-                </ul>
-            </div>
-            <div className="header-contact">Телефон : +987654321</div>
+          <Link to='/'><img src={logo} alt="Логотип" className='header-logo' /></Link>
+
+          <div className={`header-navigate ${isMenuOpen ? 'active' : ''}`}>
+            <Link to='/' onClick={() => setMenuOpen(false)}>Главная</Link>
+            <Link to='/products' onClick={() => setMenuOpen(false)}>Товары</Link>
+            <Link to='/about' onClick={() => setMenuOpen(false)}>О нас</Link>
+            <Link to='/contact' onClick={() => setMenuOpen(false)}>Контакты</Link>
+          </div>
+
+         
+          <div className="header-auth header-navigate">
+            <Link  >Регистрация </Link>
+            <Link>Вход </Link>
+          </div>
+          <div className="burger-menu" onClick={toggleMenu}>
+            <div className={`burger ${isMenuOpen ? 'open' : ''}`}></div>
+          </div>
         </div>
       </div>
-      <div>
+      
+      <div className='qw'>
         <svg
           className="waves"
           xmlns="http://www.w3.org/2000/svg"

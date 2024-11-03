@@ -3,16 +3,14 @@
   flex-direction: column;
   align-items: center;
 }
+.title-strong {
+  font-weight: bold; /* Сделать текст жирным */
+  font-size: 2em; /* Увеличить размер шрифта */
+  color: #b459db; /* Изменить цвет текста на желтый */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Добавить тень к тексту */
 
-.title {
-  margin-bottom: 20px;
-  text-align: center;
-  animation: fadeIn 1s ease-in;
-}
-
-.title h1 {
-  font-size: 2.5rem;
-  color: #711dd9;
+  padding: 10px; /* Добавить внутренние отступы */
+  border-radius: 5px; /* Сгладить углы фона */
 }
 
 .main-content {
