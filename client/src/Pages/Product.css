@@ -56,7 +56,7 @@ label{
 .filter-panel li:hover,
 .filter-panel li.active {
   
-    color: #f83011;
+    color: red;
 }
 
 .product-list {
@@ -228,4 +228,9 @@ label{
     font-size: 16px;
     color: #555;
     line-height: 1.5;
+}
+.product-img{
+    height: 200px;
+    width: 100%;
+    background-color: #ffffff;
 }

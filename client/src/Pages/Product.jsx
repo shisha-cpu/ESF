@@ -1,6 +1,10 @@
-import { useState, useEffect } from "react"; 
-import axios from "axios"; 
-import './Product.css';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/swiper-bundle.css"; // This import might vary based on your setup
+import './Product.css'
+
 
 export function Product() { 
     const [products, setProducts] = useState({}); 
@@ -8,7 +12,7 @@ export function Product() {
     const [selectedItem, setSelectedItem] = useState(null); 
     const [showModal, setShowModal] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
-    const [priceRange, setPriceRange] = useState([0, 1000000]); // Example range
+    const [priceRange, setPriceRange] = useState([0, 1000000]);     
     const [selectedManufacturer, setSelectedManufacturer] = useState("");
 
     const manufacturers = [
@@ -119,21 +123,36 @@ export function Product() {
                 </div> 
                 <div className="category"> 
                     <h2>{selectedCategory ? selectedCategory : "Все товары"}</h2> 
-                    <div className="product-cards"> 
-                        {filteredProducts().length > 0 ? (
-                            filteredProducts().map((item, itemIndex) => ( 
-                                <div key={itemIndex} className="product-card"> 
-                                    <img src={'https://avatars.mds.yandex.net/i?id=30c1c1bf8a3dcbfdf9050e02c12bd8e7e4feeea0-4449234-images-thumbs&n=13'} alt={item.name} /> 
-                                    <h3>{item.name}</h3> 
-                                    <p><strong>Цена:</strong> {item.price} руб.</p> 
-                                    <button onClick={handleAddToCart}>Добавить в корзину</button> 
-                                    <button onClick={() => handleShowDetails(item)}>Подробнее</button> 
-                                </div> 
-                            ))
-                        ) : (
-                            <p>Товары не найдены.</p>
-                        )}
-                    </div> 
+                    <div className="product-cards">
+                    {filteredProducts().length > 0 ? (
+                        filteredProducts().map((item, itemIndex) => {
+                            const images = item.photo.replace(/\\r\\n/g, '\n').split('\n');
+
+                            return (
+                                <div key={itemIndex} className="product-card">
+                                    <Swiper
+                                        modules={[Navigation]}
+                                        navigation
+                                        spaceBetween={10}
+                                        slidesPerView={1}
+                                    >
+                                        {images.map((url, imgIndex) => (
+                                            <SwiperSlide key={imgIndex}>
+                                                <img src={url} className="product-img" alt={`${item.name} image ${imgIndex + 1}`} />
+                                            </SwiperSlide>
+                                        ))}
+                                    </Swiper>
+                                    <h3>{item.name}</h3>
+                                    <p><strong>Цена:</strong> {item.price} руб.</p>
+                                    <button onClick={handleAddToCart}>Добавить в корзину</button>
+                                    <button onClick={() => handleShowDetails(item)}>Подробнее</button>
+                                </div>
+                            );
+                        })
+                    ) : (
+                        <p>Товары не найдены.</p>
+                    )}
+                </div>
                 </div>
 
                 {showModal && selectedItem && ( 
